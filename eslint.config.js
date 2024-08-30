@@ -1,39 +1,34 @@
+import path from 'path';
+import { fileURLToPath } from 'url';
 import globals from 'globals';
 import pluginJs from '@eslint/js';
-import tsEslint from '@typescript-eslint/eslint-plugin';
-import tsParser from '@typescript-eslint/parser';
-import reactHooks from 'eslint-plugin-react-hooks';
-import reactRefresh from 'eslint-plugin-react-refresh';
+import parser from '@typescript-eslint/parser';
+import eslintPluginTypescript from '@typescript-eslint/eslint-plugin';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default [
     {
         languageOptions: {
-            parser: tsParser,
-            parserOptions: {
-                ecmaVersion: 2020,
-                sourceType: 'module',
-                ecmaFeatures: {
-                    jsx: true,
-                },
-            },
             globals: {
                 ...globals.browser,
                 module: 'readonly',
                 __dirname: 'readonly',
             },
-        },
-        plugins: {
-            '@typescript-eslint': tsEslint,
-            'react-hooks': reactHooks,
-            'react-refresh': reactRefresh,
+            parser: parser,
+            parserOptions: {
+                ecmaVersion: 2020,
+                sourceType: 'module',
+                tsconfigRootDir: __dirname,
+                project: [path.join(__dirname, 'tsconfig.eslint.json')],
+            },
         },
         rules: {
-            ...reactHooks.configs.recommended.rules,
-            '@typescript-eslint/no-unused-vars': 'error', // Неиспользуемые переменные
-            'object-shorthand': ['error', 'always'], // Сокращённый синтаксис для объектов
-            curly: ['error', 'all'], // Использование фигурных скобок у if
-            'no-redeclare': 'error', // Переопределение переменных
-            quotes: ['error', 'single'], // Одинарные кавычки у строк
+            'no-unused-vars': 'error',
+            'object-shorthand': ['error', 'always'],
+            curly: ['error', 'all'],
+            'no-redeclare': 'error',
+            quotes: ['error', 'single'],
             'keyword-spacing': [
                 'error',
                 {
@@ -41,8 +36,8 @@ export default [
                     after: true,
                 },
             ],
-            eqeqeq: ['error', 'always'], // Использование === вместо ==
-            'no-unreachable': 'error', // Недостижимый код
+            eqeqeq: ['error', 'always'],
+            'no-unreachable': 'error',
             'prefer-const': [
                 'error',
                 {
@@ -50,11 +45,28 @@ export default [
                     ignoreReadBeforeAssign: false,
                 },
             ],
-            'react-refresh/only-export-components': [
-                'warn',
-                { allowConstantExport: true },
-            ],
         },
+        ignores: ['eslint.config.js'],
     },
     pluginJs.configs.recommended,
+    {
+        files: ['**/*.ts', '**/*.tsx'],
+        languageOptions: {
+            parser: parser,
+            parserOptions: {
+                ecmaVersion: 2020,
+                sourceType: 'module',
+                tsconfigRootDir: __dirname,
+                project: [path.join(__dirname, 'tsconfig.eslint.json')],
+            },
+        },
+        plugins: {
+            '@typescript-eslint': eslintPluginTypescript,
+        },
+        rules: {
+            '@typescript-eslint/explicit-function-return-type': ['warn'],
+            '@typescript-eslint/no-unused-vars': ['error'],
+        },
+        ignores: ['eslint.config.js'],
+    },
 ];
