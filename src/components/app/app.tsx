@@ -1,8 +1,9 @@
 import style from './app.module.scss';
-import AppRoutes from '../routes/app-routes.tsx';
-import Header from '../header/header.tsx';
+import AppRoutes from '../routes/app-routes';
+import Header from '../header/header';
+import React from 'react';
 
-const App = () => {
+const App: React.FC = () => {
     return (
         <div className={style.container}>
             <Header />

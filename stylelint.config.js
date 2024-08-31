@@ -5,7 +5,6 @@ export default {
     extends: [stylelintConfigStandard, stylelintScss],
     plugins: [stylelintScss],
     rules: {
-        // 'color-named': 'never',
         'selector-pseudo-class-no-unknown': [
             true,
             { ignorePseudoClasses: ['global'] },
@@ -21,8 +20,5 @@ export default {
             'always',
             { except: ['first-nested'], ignore: ['after-comment'] },
         ],
-        // 'alpha-value-notation': 'percentage',
-        // 'color-function-notation': 'modern',
-        // 'value-keyword-case': 'lower',
     },
 };

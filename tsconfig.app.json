@@ -1,21 +1,12 @@
 {
+    "extends": "./tsconfig.json",
     "compilerOptions": {
-        "target": "ES2020",
-        "useDefineForClassFields": true,
-        "lib": ["ES2020", "DOM", "DOM.Iterable"],
-        "module": "ESNext",
-        "skipLibCheck": true,
-        "moduleResolution": "bundler",
-        "allowImportingTsExtensions": true,
-        "isolatedModules": true,
-        "moduleDetection": "force",
-        "noEmit": true,
         "jsx": "react-jsx",
-        "strict": true,
-        "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "noFallthroughCasesInSwitch": true
+        "moduleResolution": "bundler",
+        "noEmit": true, // Не генерировать выходные файлы, используется для проверки типов
+        "isolatedModules": true, // Для проверки типов в изолированных модулях
+        "skipLibCheck": true // Пропуск проверки типов в библиотеках
     },
-    "include": ["src", "eslint.config.js"],
+    "include": ["src/**/*"],
     "exclude": ["node_modules", "dist"]
 }
