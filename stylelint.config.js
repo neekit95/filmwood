@@ -20,5 +20,6 @@ export default {
             'always',
             { except: ['first-nested'], ignore: ['after-comment'] },
         ],
+        'selector-class-pattern': null,
     },
 };
