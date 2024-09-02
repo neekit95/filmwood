@@ -3,11 +3,13 @@
     width: 100%;
     justify-content: center;
     align-items: center;
-    background-color: #234126;
+    //background-color: #234126;
+    background-color: white;
     height: 60px;
     position: fixed;
     top: 0;
     z-index: 999999;
+    border-bottom: 1px solid #efefef;
 }
 
 .header {
@@ -30,7 +32,8 @@
 }
 
 .logo {
-    color: white;
+    //color: white;
+    color: #234126;
     height: 100%;
     gap: 5px;
 }
@@ -38,7 +41,8 @@
 .navbar {
     font-size: 25px;
     height: 80%;
-    color: white;
+    //color: white;
+    color: #234126;
 }
 
 .logo,
@@ -48,7 +52,8 @@
     padding: 5px 0;
 
     &:hover {
-        border-bottom: 1px solid white;
+        //border-bottom: 1px solid white;
+        border-bottom: 1px solid #234126;
     }
 }
 
@@ -61,6 +66,12 @@
         width: 100%;
         padding: 10px;
         font-size: 16px;
+        border: 1px solid #234126;
+        opacity: 0.4;
+
+        &:focus {
+            opacity: 1;
+        }
     }
 }
 
@@ -75,6 +86,8 @@
     right: 0;
     background-color: white;
     color: #234126;
+    //background-color: #234126;
+    //color: white;
     gap: 5px;
     border-radius: 0 0 10px 10px;
     z-index: 1111111;
@@ -89,6 +102,7 @@
         justify-content: flex-start;
         align-items: center;
         gap: 8px;
+        font-size: 16px;
 
         &:hover {
             background-color: #234126;
