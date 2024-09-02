@@ -18,7 +18,7 @@ const Header: React.FC = () => {
     };
 
     useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
+        const handleClickOutside = (event: MouseEvent): void => {
             // Проверяем, что клик произошел не на кнопке и не в области меню
             if (
                 dropdownRef.current &&
@@ -32,7 +32,7 @@ const Header: React.FC = () => {
 
         document.addEventListener('mousedown', handleClickOutside);
 
-        return () => {
+        return (): void => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, []);

@@ -10,7 +10,7 @@ export default defineConfig({
     ],
     resolve: {
         alias: {
-            '@': '/src', // Упрощение путей к файлам
+            '@': path.resolve(__dirname, 'src'), // Алиас @ для папки src
             '@pages': path.resolve(__dirname, 'src/pages'), // Alias для страниц
         },
     },
