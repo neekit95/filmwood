@@ -1,0 +1,30 @@
+.container {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    z-index: 999999999999;
+    background-color: #efefef;
+    color: black;
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #ddd;
+    }
+}
+
+.option {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    z-index: 10;
+    padding: 5px;
+    border-bottom: 1px solid #efefef;
+
+    &:hover {
+        background-color: transparent;
+    }
+}

@@ -17,7 +17,6 @@
     background-color: #234126;
     place-self: center;
     min-height: 50vh;
-    max-height: 60vh;
 }
 
 .heroImage {
@@ -74,11 +73,12 @@
         align-items: center;
         flex-direction: column;
         font-size: 43px;
+        font-family: Montserrat, sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
 
         span {
-            margin-top: 20px;
-            font-size: 50px;
-            //background-color: red;
+            margin-top: 10px;
         }
     }
 
@@ -94,7 +94,7 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
-    margin-top: 60px;
+    padding: 60px 0 30px;
     gap: 40px;
     color: #234126;
 

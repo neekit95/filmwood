@@ -6,8 +6,14 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoMdHome } from 'react-icons/io';
 import { PiFinnTheHumanFill } from 'react-icons/pi';
 import { IoSettingsSharp } from 'react-icons/io5';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/store/store';
+import { IoEnterOutline } from 'react-icons/io5';
+import { IoDocumentTextOutline } from 'react-icons/io5';
 
 const Header: React.FC = () => {
+    const isUserAuth = useSelector((state: RootState) => state.auth.isUserAuth);
+
     const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
     const buttonRef = useRef<HTMLButtonElement>(null);
@@ -59,38 +65,77 @@ const Header: React.FC = () => {
                     >
                         <GiHamburgerMenu />
                     </button>
+
                     {isDropdownOpen && (
                         <div className={style.dropdown} ref={dropdownRef}>
-                            <Link to="/" className={style.dropdownLink}>
-                                <button
-                                    onClick={toggleDropdown}
-                                    className={style.dropbutton}
-                                >
-                                    <IoMdHome />
+                            {isUserAuth ? (
+                                <div>
+                                    <Link to="/" className={style.dropdownLink}>
+                                        <button
+                                            onClick={toggleDropdown}
+                                            className={style.dropbutton}
+                                        >
+                                            <IoMdHome />
 
-                                    <p>Домой</p>
-                                </button>
-                            </Link>
+                                            <p>Домой</p>
+                                        </button>
+                                    </Link>
 
-                            <Link to="/userpage" className={style.dropdownLink}>
-                                <button
-                                    onClick={toggleDropdown}
-                                    className={style.dropbutton}
-                                >
-                                    <PiFinnTheHumanFill />
-                                    <p>Мой профиль</p>
-                                </button>
-                            </Link>
+                                    <Link
+                                        to="/userpage"
+                                        className={style.dropdownLink}
+                                    >
+                                        <button
+                                            onClick={toggleDropdown}
+                                            className={style.dropbutton}
+                                        >
+                                            <PiFinnTheHumanFill />
+                                            <p>Мой профиль</p>
+                                        </button>
+                                    </Link>
 
-                            <Link to="/settings" className={style.dropdownLink}>
-                                <button
-                                    onClick={toggleDropdown}
-                                    className={style.dropbutton}
-                                >
-                                    <IoSettingsSharp />
-                                    <p>Настройки</p>
-                                </button>
-                            </Link>
+                                    <Link
+                                        to="/settings"
+                                        className={style.dropdownLink}
+                                    >
+                                        <button
+                                            onClick={toggleDropdown}
+                                            className={style.dropbutton}
+                                        >
+                                            <IoSettingsSharp />
+                                            <p>Настройки</p>
+                                        </button>
+                                    </Link>
+                                </div>
+                            ) : (
+                                <div>
+                                    <Link
+                                        to="/auth/login"
+                                        className={style.dropdownLink}
+                                    >
+                                        <button
+                                            onClick={toggleDropdown}
+                                            className={style.dropbutton}
+                                        >
+                                            <IoEnterOutline />
+                                            Войти
+                                        </button>
+                                    </Link>
+
+                                    <Link
+                                        to="/auth/register"
+                                        className={style.dropdownLink}
+                                    >
+                                        <button
+                                            onClick={toggleDropdown}
+                                            className={style.dropbutton}
+                                        >
+                                            <IoDocumentTextOutline />
+                                            <p>Зарегистрироваться</p>
+                                        </button>
+                                    </Link>
+                                </div>
+                            )}
                         </div>
                     )}
                 </div>
