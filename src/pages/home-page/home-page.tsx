@@ -53,6 +53,7 @@ const HomePage: React.FC = () => {
                 films={recommendedFilms}
             />
             <HomepageFilms heading="В тренде" films={trendingFilms} />
+            <HomepageFilms heading="Рекомендация для вас" films={newReleases} />
             <HomepageFilms heading="Новые релизы" films={newReleases} />
         </div>
     );

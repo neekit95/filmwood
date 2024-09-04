@@ -9,6 +9,7 @@ import RegistrationPage from '@pages/auth/registration-page/registration-page';
 import HomePage from '@pages/home-page/home-page';
 import { useSelector } from 'react-redux';
 import { RootState } from '../redux/store/store';
+import FilmPage from '@pages/film-page/film-page';
 
 const AppRoutes: React.FC = () => {
     const isUserAuth = useSelector((state: RootState) => state.auth.isUserAuth);
@@ -24,6 +25,7 @@ const AppRoutes: React.FC = () => {
             <Route path="/settings" element={<SettingsPage />} />
             <Route path="/auth/login" element={<LoginPage />} />
             <Route path="/auth/register" element={<RegistrationPage />} />
+            <Route path="/film/:link" element={<FilmPage />} />
         </Routes>
     );
 };
