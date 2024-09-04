@@ -1,9 +1,9 @@
-import style from './homepage.module.scss';
+import style from './landing-page.module.scss';
 import React from 'react';
 import filmwoodImage from '@/assets/images/filmwood.png';
 import { Link } from 'react-router-dom';
 
-const Homepage: React.FC = () => {
+const LandingPage: React.FC = () => {
     return (
         <div className={style.container}>
             <section className={style.hero}>
@@ -70,4 +70,4 @@ const Homepage: React.FC = () => {
     );
 };
 
-export default Homepage;
+export default LandingPage;

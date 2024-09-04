@@ -27,6 +27,7 @@ const AdminPanel: React.FC = () => {
     };
     const handleOptionClick = (event: React.MouseEvent): void => {
         event.stopPropagation();
+        onToggleAuth();
     };
 
     return (

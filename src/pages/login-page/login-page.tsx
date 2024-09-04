@@ -4,7 +4,9 @@ import React from 'react';
 const LoginPage: React.FC = () => {
     return (
         <div className={style.container}>
-            <h3>login page</h3>
+            <form action="" method="get" className={style.form}>
+                form
+            </form>
         </div>
     );
 };

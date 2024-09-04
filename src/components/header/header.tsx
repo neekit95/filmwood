@@ -6,13 +6,16 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoMdHome } from 'react-icons/io';
 import { PiFinnTheHumanFill } from 'react-icons/pi';
 import { IoSettingsSharp } from 'react-icons/io5';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store/store';
 import { IoEnterOutline } from 'react-icons/io5';
 import { IoDocumentTextOutline } from 'react-icons/io5';
+import { UseDispatch } from 'react-redux';
+import { logout } from '../../redux/slices/authSlice';
 
 const Header: React.FC = () => {
     const isUserAuth = useSelector((state: RootState) => state.auth.isUserAuth);
+    const dispatch = useDispatch();
 
     const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
@@ -21,6 +24,11 @@ const Header: React.FC = () => {
     const toggleDropdown = (): void => {
         console.log('Toggle dropdown');
         setIsDropdownOpen((prevState) => !prevState);
+    };
+
+    const logoutProfile = (): void => {
+        dispatch(logout());
+        setIsDropdownOpen(false);
     };
 
     useEffect(() => {
@@ -53,10 +61,11 @@ const Header: React.FC = () => {
                             <h3>FILMWOOD</h3>
                         </button>
                     </Link>
-
-                    <div className={style.search}>
-                        <input type="text" placeholder={'Search'} />
-                    </div>
+                    {isUserAuth && (
+                        <div className={style.search}>
+                            <input type="text" placeholder={'Search'} />
+                        </div>
+                    )}
 
                     <button
                         ref={buttonRef}
@@ -104,6 +113,16 @@ const Header: React.FC = () => {
                                         >
                                             <IoSettingsSharp />
                                             <p>Настройки</p>
+                                        </button>
+                                    </Link>
+
+                                    <Link to="/" className={style.dropdownLink}>
+                                        <button
+                                            onClick={logoutProfile}
+                                            className={style.dropbutton}
+                                        >
+                                            <IoSettingsSharp />
+                                            <p> Выход </p>
                                         </button>
                                     </Link>
                                 </div>
