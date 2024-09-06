@@ -3,17 +3,34 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 interface FilmProps {
-    filmName: string;
-    link: string;
+    title: string;
+    overview: string;
+    poster_path: string;
+    vote_average: number;
+    release_date: string;
 }
-
-const Film: React.FC<FilmProps> = ({ filmName, link }) => {
+const Film: React.FC<FilmProps> = ({
+    title,
+    overview,
+    poster_path,
+    vote_average,
+    release_date,
+}) => {
+    const rating = vote_average.toFixed(1);
     return (
-        <Link to={`/film${link}`} className={style.link}>
-            <div className={style.container}>
-                <h1>{filmName}</h1>
-            </div>
-        </Link>
+        <div className={style.container}>
+            <Link to={`/film${poster_path}`} className={style.link}>
+                <img
+                    src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+                    alt={title}
+                    className={style.poster}
+                />
+                <h3 className={style.title}>{title}</h3>
+                <div className={style.details}>
+                    <span className={style.rating}>Рейтинг: {rating}</span>
+                </div>
+            </Link>
+        </div>
     );
 };
 

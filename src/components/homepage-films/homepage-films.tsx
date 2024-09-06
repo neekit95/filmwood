@@ -6,8 +6,11 @@ import { useNavigate } from 'react-router-dom';
 
 interface FilmData {
     id: number;
-    filmName: string;
-    link: string;
+    title: string;
+    overview: string;
+    poster_path: string;
+    vote_average: number;
+    release_date: string;
 }
 
 interface Props {
@@ -72,28 +75,35 @@ const HomepageFilms: React.FC<Props> = ({ heading, films }) => {
                 <button onClick={handleShowFilmset}>Показать подборку</button>
             </div>
             <div className={style.filmSectionWrapper}>
-                <div className={style.navigation}>
-                    <button
-                        className={`${style.moveButton} ${style.prevButton}`}
-                        onClick={handlePrevClick}
-                        style={{ display: canScrollPrev ? 'flex' : 'none' }}
-                    >
-                        <MdNavigateBefore />
-                    </button>
-                    <button
-                        className={`${style.moveButton} ${style.nextButton}`}
-                        onClick={handleNextClick}
-                        style={{ display: canScrollNext ? 'flex' : 'none' }}
-                    >
-                        <MdNavigateNext />
-                    </button>
-                </div>
                 <div ref={filmSectionRef} className={style.filmSection}>
                     {films.map((film) => (
                         <div key={film.id} className={style.film}>
-                            <Film filmName={film.filmName} link={film.link} />
+                            <Film
+                                title={film.title}
+                                overview={film.overview}
+                                poster_path={film.poster_path}
+                                vote_average={film.vote_average}
+                                release_date={film.release_date}
+                            />
                         </div>
                     ))}
+
+                    <div className={style.navigation}>
+                        <button
+                            className={`${style.moveButton} ${style.prevButton}`}
+                            onClick={handlePrevClick}
+                            style={{ display: canScrollPrev ? 'flex' : 'none' }}
+                        >
+                            <MdNavigateBefore />
+                        </button>
+                        <button
+                            className={`${style.moveButton} ${style.nextButton}`}
+                            onClick={handleNextClick}
+                            style={{ display: canScrollNext ? 'flex' : 'none' }}
+                        >
+                            <MdNavigateNext />
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
