@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import checker from 'vite-plugin-checker';
+import path from 'path';
 
 export default defineConfig({
     plugins: [
@@ -9,7 +10,9 @@ export default defineConfig({
     ],
     resolve: {
         alias: {
-            '@': '/src', // Упрощение путей к файлам
+            '@': path.resolve(__dirname, 'src'), // Алиас @ для папки src
+            '@pages': path.resolve(__dirname, 'src/pages'), // Alias для страниц
+            '@components': path.resolve(__dirname, 'src/components'), // Alias для компонентов
         },
     },
     server: {
