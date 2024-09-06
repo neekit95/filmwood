@@ -2,26 +2,24 @@ import style from './home-page.module.scss';
 import React, { useEffect } from 'react';
 import HomepageFilms from '@components/homepage-films/homepage-films';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchAllFilms } from '../../redux/slices/filmSlice';
+import { fetchAllFilms } from '../../redux/slices/filmsSlice';
 import { AppDispatch, RootState } from '../../redux/store/store';
+import Loader from '../../components/loader/loader';
 
 const HomePage: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
     const { recommended, trending, newReleases, loading, error } = useSelector(
-        (state: RootState) => state.film
+        (state: RootState) => state.films
     );
     useEffect(() => {
         dispatch(fetchAllFilms());
     }, [dispatch]);
 
     if (loading) {
-        return 'загрузка';
+        return <Loader />;
     }
     if (error) {
         return <div className={style.error}>Ошибка: {error}</div>;
-    }
-    if (!loading) {
-        console.table(recommended);
     }
 
     return (

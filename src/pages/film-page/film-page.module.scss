@@ -1,9 +1,48 @@
 .container {
-    padding-top: 100px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
     width: 100%;
     min-height: calc(100vh - 60px);
+    padding: 50px 20px;
+}
+
+.main {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    width: 35%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+    }
+}
+
+.right {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    gap: 50px;
+    padding: 0 50px;
+
+    h1 {
+        font-size: 60px;
+    }
+
+    p {
+        font-size: 22px;
+    }
 }

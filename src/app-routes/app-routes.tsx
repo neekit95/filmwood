@@ -26,7 +26,7 @@ const AppRoutes: React.FC = () => {
             <Route path="/settings" element={<SettingsPage />} />
             <Route path="/auth/login" element={<LoginPage />} />
             <Route path="/auth/register" element={<RegistrationPage />} />
-            <Route path="/film/:link" element={<FilmPage />} />
+            <Route path="/film/:id" element={<FilmPage />} />
             <Route path="/filmset/:id" element={<FilmsetPage />} />
         </Routes>
     );

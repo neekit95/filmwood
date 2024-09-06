@@ -43,15 +43,42 @@ export const fetchAllFilms = createAsyncThunk(
     }
 );
 
+export const fetchFilmById = createAsyncThunk(
+    'films/fetchFilmById',
+    async (filmId: number) => {
+        const response = await axios.get(
+            `https://api.themoviedb.org/3/movie/${filmId}`,
+            {
+                headers: { Authorization: `Bearer ${ACCESS_TOKEN}` },
+                params: {
+                    language: 'ru-RU',
+                },
+            }
+        );
+        return response.data;
+    }
+);
+
+interface Film {
+    id: number;
+    title: string;
+    overview: string;
+    poster_path: string;
+    vote_average: number;
+    release_date: string;
+}
+
 interface FilmState {
-    recommended: any[];
-    trending: any[];
-    newReleases: any[];
+    filmDetails: Film | null;
+    recommended: Film[];
+    trending: Film[];
+    newReleases: Film[];
     loading: boolean;
     error: string | null;
 }
 
 const initialState: FilmState = {
+    filmDetails: null,
     recommended: [],
     trending: [],
     newReleases: [],
@@ -59,7 +86,7 @@ const initialState: FilmState = {
     error: null,
 };
 
-const filmSlice = createSlice({
+const filmsSlice = createSlice({
     name: 'films',
     initialState,
     reducers: {},
@@ -78,8 +105,21 @@ const filmSlice = createSlice({
             .addCase(fetchAllFilms.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.error.message || 'Failed to load films';
+            })
+            .addCase(fetchFilmById.pending, (state) => {
+                state.loading = true;
+                state.error = null;
+            })
+            .addCase(fetchFilmById.fulfilled, (state, action) => {
+                state.loading = false;
+                state.filmDetails = action.payload;
+            })
+            .addCase(fetchFilmById.rejected, (state, action) => {
+                state.loading = false;
+                state.error =
+                    action.error.message || 'Failed to load film details';
             });
     },
 });
 
-export default filmSlice.reducer;
+export default filmsSlice.reducer;
