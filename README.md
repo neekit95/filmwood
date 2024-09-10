@@ -1,50 +1,47 @@
-# React + TypeScript + Vite
+# Filmwood
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Filmwood — это веб-приложение, позволяющее пользователям искать фильмы, просматривать их детали и  получать персональные рекомендации. Приложение построено на базе React и Redux Toolkit и использует API [The Movie Database (TMDB)](https://www.themoviedb.org/) для получения данных о фильмах.
 
-Currently, two official plugins are available:
+## Установка
 
--   [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
--   [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Для запуска проекта локально выполните следующие шаги:
 
-## Expanding the ESLint configuration
+1. **Клонируйте репозиторий:**
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+    ```bash
+    git clone https://github.com/neekit95/filmwood.git
+    cd filmwood
+    git checkout develop
+    ```
 
--   Configure the top-level `parserOptions` property like this:
+2. **Установите зависимости:**
 
-```js
-export default tseslint.config({
-    languageOptions: {
-        // other options...
-        parserOptions: {
-            project: ['./tsconfig.node.json', './tsconfig.app.json'],
-            tsconfigRootDir: import.meta.dirname,
-        },
-    },
-});
-```
+    ```bash
+    npm install
+    ```
 
--   Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
--   Optionally add `...tseslint.configs.stylisticTypeChecked`
--   Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+3. **Запустите проект:**
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react';
+    ```bash
+   vite
+    ```
 
-export default tseslint.config({
-    // Set the react version
-    settings: { react: { version: '18.3' } },
-    plugins: {
-        // Add the react plugin
-        react,
-    },
-    rules: {
-        // other rules...
-        // Enable its recommended rules
-        ...react.configs.recommended.rules,
-        ...react.configs['jsx-runtime'].rules,
-    },
-});
-```
+   После этого приложение будет доступно по адресу [http://localhost:3000](http://localhost:3000).
+
+## Скрипты
+
+- `vite` — запуск приложения в режиме разработки.
+- `npm run build` — сборка приложения для продакшена.
+- `npm run lint:eslint` — проверка кода с помощью ESLint.
+
+## Технологии
+
+- **React** — библиотека для построения пользовательских интерфейсов.
+- **Redux Toolkit** — инструмент для управления состоянием приложения.
+- **TypeScript** — использование строгой типизации для повышения качества кода.
+- **Axios** — для выполнения HTTP запросов к API TMDB.
+- **SCSS** — стилизация приложения с использованием модульных стилей.
+
+## Сотрудничество
+
+Если у вас есть идеи или предложения по улучшению проекта, создавайте [issues](https://github.com/neekit95/filmwood/issues) или отправляйте пул-реквесты.
