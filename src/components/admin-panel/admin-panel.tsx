@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { AppDispatch, RootState } from '../../redux/store/store';
 import { useDispatch, useSelector } from 'react-redux';
-import { login, logout } from '../../redux/slices/authSlice';
+import { login, logout } from '../../redux/slices/auth-slice';
 import Switch from '@mui/material/Switch';
 import style from './admin-panel.module.scss';
 

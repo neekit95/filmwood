@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../redux/store/store';
-import { fetchFilmById } from '../../redux/slices/filmsSlice';
+import { fetchFilmById } from '../../redux/slices/films-slice';
 import style from './film-page.module.scss';
 
 const FilmPage: React.FC = () => {

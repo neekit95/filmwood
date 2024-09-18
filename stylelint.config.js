@@ -35,7 +35,6 @@ export default {
                 'right',
                 'bottom',
                 'left',
-                'z-index',
                 'display',
                 'justify-content',
                 'align-items',

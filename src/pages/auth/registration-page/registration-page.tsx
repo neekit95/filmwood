@@ -6,8 +6,8 @@ import {
     setUserEmail,
     setUserPassword,
     setUsername,
-} from '../../../redux/slices/userSlice';
-import { login } from '../../../redux/slices/authSlice';
+} from '../../../redux/slices/user-slice';
+import { login } from '../../../redux/slices/auth-slice';
 
 const RegistrationPage: React.FC = () => {
     const dispatch = useDispatch();

@@ -11,7 +11,7 @@ import { RootState } from '../../redux/store/store';
 import { IoEnterOutline } from 'react-icons/io5';
 import { IoDocumentTextOutline } from 'react-icons/io5';
 import { UseDispatch } from 'react-redux';
-import { logout } from '../../redux/slices/authSlice';
+import { logout } from '../../redux/slices/auth-slice';
 
 const Header: React.FC = () => {
     const isUserAuth = useSelector((state: RootState) => state.auth.isUserAuth);

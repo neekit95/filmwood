@@ -2,7 +2,7 @@ import style from '@pages/auth/auth.module.scss';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { login } from '../../../redux/slices/authSlice';
+import { login } from '../../../redux/slices/auth-slice';
 import { Link } from 'react-router-dom';
 
 const LoginPage: React.FC = () => {
