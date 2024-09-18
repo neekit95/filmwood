@@ -25,7 +25,6 @@
     left: 0;
     width: 100vw;
     height: auto;
-    z-index: 0;
     filter: brightness(35%) blur(4px);
     object-fit: cover;
     user-select: none;
@@ -43,7 +42,6 @@
     gap: 5vh;
     text-align: center;
     color: #ffffff;
-    z-index: 2;
     flex-direction: column;
     transform: translate(-50%, -50%);
 

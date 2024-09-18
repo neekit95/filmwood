@@ -9,7 +9,7 @@
     border-radius: 10px;
     color: #000000;
     transition: background-color 0.3s ease;
-    z-index: 999999999999;
+    z-index: 10;
     cursor: pointer;
 
     &:hover {
@@ -29,7 +29,6 @@
     gap: 10px;
     background-color: #bebebe;
     border-radius: 5px;
-    z-index: 10;
 
     &:hover {
         box-shadow: 2px 2px 2px 2px rgb(169 169 169 / 60%);
