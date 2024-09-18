@@ -89,13 +89,13 @@
         padding: 60px 0 0;
         border-radius: 0;
         opacity: 1;
-        color: #000;
+        color: #000000;
 
         &:hover {
             background-color: transparent;
             opacity: 1;
             z-index: 16;
-            color: white;
+            color: #ffffff;
         }
 
         &.prevButton {

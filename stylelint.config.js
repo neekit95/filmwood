@@ -21,5 +21,7 @@ export default {
             { except: ['first-nested'], ignore: ['after-comment'] },
         ],
         'selector-class-pattern': null,
+        'color-named' : 'never',
+        'color-hex-length': 'long'
     },
 };
