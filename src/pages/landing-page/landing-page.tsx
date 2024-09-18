@@ -1,18 +1,20 @@
 import style from './landing-page.module.scss';
 import React from 'react';
-import filmwoodImage from '@/assets/images/filmwood.png';
+import filmwoodImage from '@/assets/images/filmwood.webp';
 import { Link } from 'react-router-dom';
 
 const LandingPage: React.FC = () => {
     return (
         <div className={style.container}>
             <section className={style.hero}>
-                <img
-                    src={filmwoodImage}
-                    alt="filmwood image"
-                    className={style.heroImage}
-                />
-
+                <picture>
+                    {/*TODO: добавить адаптив*/}
+                    <img
+                        src={filmwoodImage}
+                        alt="filmwood image"
+                        className={style.heroImage}
+                    />
+                </picture>
                 <div className={style.heroContent}>
                     <h1>
                         Откройте мир кино с
