@@ -9,9 +9,10 @@
         "lint": "eslint .",
         "preview": "vite preview",
         "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,scss,html,json,md}' --ignore-path .prettierignore",
-        "lint:eslint--fix": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",
         "lint:eslint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
+        "lint:eslint--fix": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",
         "lint:stylelint": "stylelint 'src/**/*.{css,scss}'",
+        "lint:stylelint--fix": "stylelint 'src/**/*.{css,scss}' --fix",
         "lint:prettier": "prettier --check ."
     },
     "dependencies": {

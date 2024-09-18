@@ -1,16 +1,16 @@
 .container {
     position: fixed;
-    left: 20px;
     bottom: 20px;
-    z-index: 999999999999;
-    background-color: #efefef;
-    color: #000000;
-    border-radius: 10px;
-    cursor: pointer;
+    left: 20px;
     min-width: 60px;
     min-height: 60px;
     padding: 20px;
+    background-color: #efefef;
+    border-radius: 10px;
+    color: #000000;
     transition: background-color 0.3s ease;
+    z-index: 999999999999;
+    cursor: pointer;
 
     &:hover {
         box-shadow: 2px 2px 2px 2px rgb(169 169 169 / 34%);
@@ -25,11 +25,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    z-index: 10;
     padding: 10px 15px;
+    gap: 10px;
     background-color: #bebebe;
     border-radius: 5px;
+    z-index: 10;
 
     &:hover {
         box-shadow: 2px 2px 2px 2px rgb(169 169 169 / 60%);

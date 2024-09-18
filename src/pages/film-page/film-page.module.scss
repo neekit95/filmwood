@@ -1,28 +1,28 @@
 .container {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
     justify-content: flex-start;
+    align-items: flex-start;
     width: 100%;
     min-height: calc(100vh - 60px);
     padding: 50px 20px;
+    flex-direction: column;
 }
 
 .main {
     display: flex;
-    align-items: stretch;
     justify-content: flex-start;
+    align-items: stretch;
 }
 
 .left {
     display: flex;
-    flex-direction: column;
-    max-width: 500px;
+    justify-content: center;
+    align-items: center;
     width: 35%;
     height: 100%;
-    align-items: center;
-    justify-content: center;
+    max-width: 500px;
     gap: 10px;
+    flex-direction: column;
 
     img {
         width: 100%;
@@ -34,9 +34,9 @@
 .right {
     display: flex;
     width: 50%;
-    flex-direction: column;
-    gap: 50px;
     padding: 0 50px;
+    gap: 50px;
+    flex-direction: column;
 
     h1 {
         font-size: 60px;

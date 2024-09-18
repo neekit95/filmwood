@@ -1,21 +1,21 @@
 .container {
+    position: relative;
     display: flex;
-    flex-direction: column;
     justify-content: stretch;
     align-items: stretch;
     width: 100%;
-    margin-bottom: 40px;
     height: 100%;
+    flex-direction: column;
+    margin-bottom: 40px;
     overflow: hidden;
-    position: relative;
 }
 
 .heading {
-    padding-left: 20px;
-    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    padding-left: 20px;
 
     h2 {
         width: 100%;
@@ -24,78 +24,78 @@
     }
 
     button {
-        text-wrap: nowrap;
-        font-size: 20px;
         background-color: transparent;
+        font-size: 20px;
         z-index: 2;
+        text-wrap: nowrap;
     }
 }
 
 .filmSection {
-    padding: 20px;
     display: flex;
     justify-content: flex-start;
     align-items: stretch;
+    padding: 20px;
     gap: 1vw;
-    overflow: hidden;
     flex-grow: 1;
+    overflow: hidden;
 }
 
 .film {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: stretch;
-    flex-grow: 1;
     min-width: 300px;
     border-radius: 5px;
-    cursor: pointer;
-    overflow: hidden;
     transition: transform 0.3s ease;
-    position: relative;
     z-index: 1;
+    cursor: pointer;
+    flex-grow: 1;
+    overflow: hidden;
 
     &:hover {
-        transform: scale(1.04) translateY(-1px);
         box-shadow: rgb(0 0 0 / 15%) 1.95px 1.95px 2.6px;
         z-index: 2;
+        transform: scale(1.04) translateY(-1px);
     }
 }
 
 .navigation {
     position: absolute;
-    height: 100%;
-    left: -10px;
     top: 0;
     bottom: 0;
-    width: calc(100% + 20px);
+    left: -10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: calc(100% + 20px);
+    height: 100%;
 
     .moveButton {
-        top: 50%;
-        transform: translateY(-53%);
-        height: 50%;
         position: absolute;
+        top: 50%;
         display: flex;
-        align-items: center;
         justify-content: center;
-        align-self: stretch;
-        border: none;
-        cursor: pointer;
-        z-index: 10;
-        font-size: 50px;
+        align-items: center;
         width: 60px;
+        height: 50%;
         padding: 60px 0 0;
+        border: none;
         border-radius: 0;
         opacity: 1;
+        font-size: 50px;
         color: #000000;
+        z-index: 10;
+        align-self: stretch;
+        cursor: pointer;
+        transform: translateY(-53%);
 
         &:hover {
             background-color: transparent;
             opacity: 1;
-            z-index: 16;
             color: #ffffff;
+            z-index: 16;
         }
 
         &.prevButton {
