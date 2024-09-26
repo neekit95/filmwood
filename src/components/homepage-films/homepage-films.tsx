@@ -7,10 +7,8 @@ import { useNavigate } from 'react-router-dom';
 interface FilmData {
     id: number;
     title: string;
-    overview: string;
     poster_path: string;
     vote_average: number;
-    release_date: string;
 }
 
 interface Props {
@@ -57,14 +55,14 @@ const HomepageFilms: React.FC<Props> = ({ heading, films }) => {
         if (ref) {
             ref.addEventListener('scroll', updateScrollButtons);
             window.addEventListener('resize', updateScrollButtons);
-            return () => {
+            return (): void => {
                 ref.removeEventListener('scroll', updateScrollButtons);
                 window.removeEventListener('resize', updateScrollButtons);
             };
         }
     }, [films]);
 
-    const handleShowFilmset = () => {
+    const handleShowFilmset = (): void => {
         navigate('/filmset/1');
     };
 
@@ -97,10 +95,8 @@ const HomepageFilms: React.FC<Props> = ({ heading, films }) => {
                             <Film
                                 id={film.id}
                                 title={film.title}
-                                overview={film.overview}
                                 poster_path={film.poster_path}
                                 vote_average={film.vote_average}
-                                release_date={film.release_date}
                             />
                         </div>
                     ))}

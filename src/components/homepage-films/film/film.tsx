@@ -5,19 +5,15 @@ import style from './film.module.scss';
 interface FilmProps {
     id: number;
     title: string;
-    overview: string;
     poster_path: string;
     vote_average: number;
-    release_date: string;
 }
 
 const Film: React.FC<FilmProps> = ({
     id,
     title,
-    overview,
     poster_path,
     vote_average,
-    release_date,
 }) => {
     const rating = vote_average.toFixed(1);
 

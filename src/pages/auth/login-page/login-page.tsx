@@ -69,12 +69,13 @@ const LoginPage: React.FC = () => {
                 />
 
                 <button type="submit">Войти</button>
+
                 <div className={style.regSign}>
                     <p>Еще нет аккаунта?</p>
                     <Link to="/auth/register">
-                        <button className={style.regSignButton}>
+                        <div className={style.regSignButton}>
                             Зарегистрироваться
-                        </button>
+                        </div>
                     </Link>
                 </div>
             </form>

@@ -1,17 +1,16 @@
 import style from './header.module.scss';
 import React, { useState, useEffect, useRef } from 'react';
 import { MdForest } from 'react-icons/md';
-import { Link } from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoMdHome } from 'react-icons/io';
 import { PiFinnTheHumanFill } from 'react-icons/pi';
-import { IoSettingsSharp } from 'react-icons/io5';
+import { IoEnter, IoSettingsSharp } from 'react-icons/io5';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store/store';
 import { IoEnterOutline } from 'react-icons/io5';
 import { IoDocumentTextOutline } from 'react-icons/io5';
-import { UseDispatch } from 'react-redux';
 import { logout } from '../../redux/slices/auth-slice';
+import LinkButton from '@components/link-button/link-button';
 
 const Header: React.FC = () => {
     const isUserAuth = useSelector((state: RootState) => state.auth.isUserAuth);
@@ -22,7 +21,6 @@ const Header: React.FC = () => {
     const buttonRef = useRef<HTMLButtonElement>(null);
 
     const toggleDropdown = (): void => {
-        console.log('Toggle dropdown');
         setIsDropdownOpen((prevState) => !prevState);
     };
 
@@ -33,7 +31,6 @@ const Header: React.FC = () => {
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent): void => {
-            // Проверяем, что клик произошел не на кнопке и не в области меню
             if (
                 dropdownRef.current &&
                 buttonRef.current &&
@@ -55,12 +52,8 @@ const Header: React.FC = () => {
         <div className={style.container}>
             <div className="wrapper">
                 <div className={style.header}>
-                    <Link to="/">
-                        <button className={style.logo}>
-                            <MdForest />
-                            <h3>FILMWOOD</h3>
-                        </button>
-                    </Link>
+                    <LinkButton to="/" icon={<MdForest />} nameH3="FILMWOOD" />
+
                     {isUserAuth && (
                         <div className={style.search}>
                             <input type="text" placeholder={'Search'} />
@@ -77,82 +70,52 @@ const Header: React.FC = () => {
 
                     {isDropdownOpen && (
                         <div className={style.dropdown} ref={dropdownRef}>
-                            {isUserAuth ? (
+                            {isUserAuth && (
                                 <div>
-                                    <Link to="/" className={style.dropdownLink}>
-                                        <button
-                                            onClick={toggleDropdown}
-                                            className={style.dropbutton}
-                                        >
-                                            <IoMdHome />
+                                    <LinkButton
+                                        to="/"
+                                        onClick={toggleDropdown}
+                                        icon={<IoMdHome />}
+                                        nameP="Домой"
+                                    />
 
-                                            <p>Домой</p>
-                                        </button>
-                                    </Link>
-
-                                    <Link
+                                    <LinkButton
                                         to="/userpage"
-                                        className={style.dropdownLink}
-                                    >
-                                        <button
-                                            onClick={toggleDropdown}
-                                            className={style.dropbutton}
-                                        >
-                                            <PiFinnTheHumanFill />
-                                            <p>Мой профиль</p>
-                                        </button>
-                                    </Link>
+                                        onClick={toggleDropdown}
+                                        icon={<PiFinnTheHumanFill />}
+                                        nameP="Мой профиль"
+                                    />
 
-                                    <Link
+                                    <LinkButton
                                         to="/settings"
-                                        className={style.dropdownLink}
-                                    >
-                                        <button
-                                            onClick={toggleDropdown}
-                                            className={style.dropbutton}
-                                        >
-                                            <IoSettingsSharp />
-                                            <p>Настройки</p>
-                                        </button>
-                                    </Link>
+                                        onClick={toggleDropdown}
+                                        icon={<IoSettingsSharp />}
+                                        nameP="Настройки"
+                                    />
 
-                                    <Link to="/" className={style.dropdownLink}>
-                                        <button
-                                            onClick={logoutProfile}
-                                            className={style.dropbutton}
-                                        >
-                                            <IoSettingsSharp />
-                                            <p> Выход </p>
-                                        </button>
-                                    </Link>
+                                    <LinkButton
+                                        to="/"
+                                        onClick={logoutProfile}
+                                        icon={<IoEnter />}
+                                        nameP="Выход"
+                                    />
                                 </div>
-                            ) : (
+                            )}
+                            {!isUserAuth && (
                                 <div>
-                                    <Link
-                                        to="/auth/login"
-                                        className={style.dropdownLink}
-                                    >
-                                        <button
-                                            onClick={toggleDropdown}
-                                            className={style.dropbutton}
-                                        >
-                                            <IoEnterOutline />
-                                            Войти
-                                        </button>
-                                    </Link>
+                                    <LinkButton
+                                        to="auth/login"
+                                        onClick={toggleDropdown}
+                                        icon={<IoEnterOutline />}
+                                        nameP="Войти"
+                                    />
 
-                                    <Link
-                                        to="/auth/register"
-                                        className={style.dropdownLink}
-                                    >
-                                        <button
-                                            onClick={toggleDropdown}
-                                            className={style.dropbutton}
-                                        >
-                                            <IoDocumentTextOutline />
-                                            <p>Зарегистрироваться</p>
-                                        </button>
-                                    </Link>
+                                    <LinkButton
+                                        to="auth/register"
+                                        onClick={toggleDropdown}
+                                        icon={<IoDocumentTextOutline />}
+                                        nameP="Зарегистрироваться"
+                                    />
                                 </div>
                             )}
                         </div>

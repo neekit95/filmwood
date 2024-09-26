@@ -101,7 +101,7 @@ const RegistrationPage: React.FC = () => {
                 <div className={style.regSign}>
                     <p>Уже есть аккаунт?</p>
                     <Link to="/auth/login">
-                        <button className={style.regSignButton}>Войти</button>
+                        <div className={style.regSignButton}>Войти</div>
                     </Link>
                 </div>
             </form>
