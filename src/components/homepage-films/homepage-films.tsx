@@ -4,17 +4,16 @@ import Film from './film/film';
 import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 
-interface FilmData {
+type FilmData = {
     id: number;
     title: string;
     poster_path: string;
     vote_average: number;
-}
-
-interface Props {
+};
+type Props = {
     heading?: string;
     films: FilmData[];
-}
+};
 
 const HomepageFilms: React.FC<Props> = ({ heading, films }) => {
     const filmSectionRef = useRef<HTMLDivElement>(null);

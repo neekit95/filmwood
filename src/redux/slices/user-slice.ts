@@ -1,15 +1,15 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface UserState {
-    username: string;
-    email: string;
-    password: string;
-}
+type UserState = {
+    username: string | undefined;
+    email: string | undefined;
+    password: string | undefined;
+};
 
 const initialState: UserState = {
-    username: '',
-    email: '',
-    password: '',
+    username: undefined,
+    email: undefined,
+    password: undefined,
 };
 
 const userSlice = createSlice({

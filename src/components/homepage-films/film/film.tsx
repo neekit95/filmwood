@@ -2,12 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import style from './film.module.scss';
 
-interface FilmProps {
+type FilmProps = {
     id: number;
     title: string;
     poster_path: string;
     vote_average: number;
-}
+};
 
 const Film: React.FC<FilmProps> = ({
     id,

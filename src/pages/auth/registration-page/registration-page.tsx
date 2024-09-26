@@ -6,25 +6,26 @@ import {
     setUserEmail,
     setUserPassword,
     setUsername,
-} from '../../../redux/slices/user-slice';
-import { login } from '../../../redux/slices/auth-slice';
+} from '@redux/slices/user-slice';
+import { login } from '@redux/slices/auth-slice';
+
+type Form = {
+    username: string | undefined;
+    password: string | undefined;
+    email: string | undefined;
+    confirmPassword: string | undefined;
+};
 
 const RegistrationPage: React.FC = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-    interface Form {
-        username: string;
-        password: string;
-        email: string;
-        confirmPassword: string;
-    }
     const [form, setForm] = useState<Form>({
-        username: '',
-        password: '',
-        email: '',
-        confirmPassword: '',
+        username: undefined,
+        password: undefined,
+        email: undefined,
+        confirmPassword: undefined,
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -40,12 +41,13 @@ const RegistrationPage: React.FC = () => {
         e.preventDefault();
 
         const checkUserExist = async (): Promise<boolean> => {
+            // TODO: дописать логику  проверки на существование пользователя
             return false;
         };
 
         const userExists = await checkUserExist();
 
-        if (!userExists) {
+        if (!userExists && form.username && form.password && form.email) {
             dispatch(setUsername(form.username));
             dispatch(setUserEmail(form.email));
             dispatch(setUserPassword(form.password));

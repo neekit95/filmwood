@@ -24,8 +24,8 @@ const AdminPanel: React.FC = () => {
         setIsPanelOpen(!isPanelOpen);
     };
 
-    const handleOptionClick = (event: MouseEvent): void => {
-        event.stopPropagation();
+    const handleOptionClick = (e: MouseEvent): void => {
+        e.stopPropagation();
         handleAuth();
     };
 

@@ -30,12 +30,12 @@ const Header: React.FC = () => {
     };
 
     useEffect(() => {
-        const handleClickOutside = (event: MouseEvent): void => {
+        const handleClickOutside = (e: MouseEvent): void => {
             if (
                 dropdownRef.current &&
                 buttonRef.current &&
-                !dropdownRef.current.contains(event.target as Node) &&
-                !buttonRef.current.contains(event.target as Node)
+                !dropdownRef.current.contains(e.target as Node) &&
+                !buttonRef.current.contains(e.target as Node)
             ) {
                 setIsDropdownOpen(false);
             }

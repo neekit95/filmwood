@@ -2,7 +2,7 @@ import style from '@pages/auth/auth.module.scss';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { login } from '../../../redux/slices/auth-slice';
+import { login } from '@redux/slices/auth-slice';
 import { Link } from 'react-router-dom';
 
 const LoginPage: React.FC = () => {
@@ -10,14 +10,14 @@ const LoginPage: React.FC = () => {
     const navigate = useNavigate();
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-    interface Form {
-        email: string;
-        password: string;
-    }
+    type Form = {
+        email: string | undefined;
+        password: string | undefined;
+    };
 
     const [form, setForm] = useState<Form>({
-        email: '',
-        password: '',
+        email: undefined,
+        password: undefined,
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -34,6 +34,7 @@ const LoginPage: React.FC = () => {
 
         const checkValid = async (): Promise<boolean> => {
             return true;
+            // TODO: Дописать логику обработки формы
         };
 
         const isValid = await checkValid();
