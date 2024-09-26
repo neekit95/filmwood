@@ -1,20 +1,23 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '../../redux/store/store';
-import { fetchFilmById } from '../../redux/slices/films-slice';
+import { AppDispatch } from '@redux/store/store';
+import { fetchFilmById } from '@redux/slices/films-slice';
 import style from './film-page.module.scss';
+import {
+    errorFilmsSelector,
+    loadingFilmsSelector,
+    filmDetailsSelector,
+} from '@redux/selectors/selectors';
 
 const FilmPage: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const dispatch = useDispatch<AppDispatch>();
     const filmId = Number(id);
 
-    const filmDetails = useSelector(
-        (state: RootState) => state.films.filmDetails
-    );
-    const loading = useSelector((state: RootState) => state.films.loading);
-    const error = useSelector((state: RootState) => state.films.error);
+    const filmDetails = useSelector(filmDetailsSelector);
+    const loading = useSelector(loadingFilmsSelector);
+    const error = useSelector(errorFilmsSelector);
 
     useEffect(() => {
         if (filmId) {

@@ -16,6 +16,7 @@
         "forceConsistentCasingInFileNames": true,
         "paths": {
             "@components/*": ["components/*"],
+            "@redux/*": ["redux/*"],
             "@pages/*": ["pages/*"],
             "colors": ["styles/colors.scss"]
         }

@@ -6,14 +6,14 @@ import { IoMdHome } from 'react-icons/io';
 import { PiFinnTheHumanFill } from 'react-icons/pi';
 import { IoEnter, IoSettingsSharp } from 'react-icons/io5';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../redux/store/store';
 import { IoEnterOutline } from 'react-icons/io5';
 import { IoDocumentTextOutline } from 'react-icons/io5';
-import { logout } from '../../redux/slices/auth-slice';
+import { logout } from '@redux/slices/auth-slice';
 import LinkButton from '@components/link-button/link-button';
+import { isUserAuthSelector } from '@redux/selectors/selectors';
 
 const Header: React.FC = () => {
-    const isUserAuth = useSelector((state: RootState) => state.auth.isUserAuth);
+    const isUserAuth = useSelector(isUserAuthSelector);
     const dispatch = useDispatch();
 
     const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);

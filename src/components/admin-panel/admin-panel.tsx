@@ -1,14 +1,16 @@
 import React, { useCallback, useState } from 'react';
-import { AppDispatch, RootState } from '../../redux/store/store';
+import { AppDispatch } from '@redux/store/store';
 import { useDispatch, useSelector } from 'react-redux';
-import { login, logout } from '../../redux/slices/auth-slice';
+import { login, logout } from '@redux/slices/auth-slice';
 import Switch from '@mui/material/Switch';
 import style from './admin-panel.module.scss';
+import { MouseEvent } from 'react';
+import { isUserAuthSelector } from '@redux/selectors/selectors';
 
 const AdminPanel: React.FC = () => {
     const [isPanelOpen, setIsPanelOpen] = useState(false);
     const dispatch = useDispatch<AppDispatch>();
-    const isUserAuth = useSelector((state: RootState) => state.auth.isUserAuth);
+    const isUserAuth = useSelector(isUserAuthSelector);
 
     const handleAuth = useCallback((): void => {
         if (isUserAuth) {
@@ -18,16 +20,13 @@ const AdminPanel: React.FC = () => {
         }
     }, [dispatch, isUserAuth]);
 
-    const onToggleAuth = useCallback(() => {
-        handleAuth();
-    }, [handleAuth]);
-
     const togglePanelOpen = (): void => {
         setIsPanelOpen(!isPanelOpen);
     };
-    const handleOptionClick = (event: React.MouseEvent): void => {
+
+    const handleOptionClick = (event: MouseEvent): void => {
         event.stopPropagation();
-        onToggleAuth();
+        handleAuth();
     };
 
     return (
@@ -40,7 +39,7 @@ const AdminPanel: React.FC = () => {
                     </p>
                     <Switch
                         checked={isUserAuth}
-                        onChange={onToggleAuth}
+                        onChange={handleAuth}
                         inputProps={{ 'aria-label': 'controlled' }}
                     />
                 </div>

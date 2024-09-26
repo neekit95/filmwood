@@ -9,6 +9,7 @@ export default defineConfig({
         alias: {
             '@': path.resolve(__dirname, 'src'),
             '@pages': path.resolve(__dirname, 'src/pages'),
+            '@redux': path.resolve(__dirname, 'src/redux'),
             '@components': path.resolve(__dirname, 'src/components'),
             colors: path.resolve(__dirname, 'src/styles/colors.scss'),
         },

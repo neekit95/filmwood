@@ -8,12 +8,12 @@ import LoginPage from '@pages/auth/login-page/login-page';
 import RegistrationPage from '@pages/auth/registration-page/registration-page';
 import HomePage from '@pages/home-page/home-page';
 import { useSelector } from 'react-redux';
-import { RootState } from '../redux/store/store';
 import FilmPage from '@pages/film-page/film-page';
 import FilmsetPage from '@pages/filmset-page/filmset-page';
+import { isUserAuthSelector } from '@redux/selectors/selectors';
 
 const AppRoutes: React.FC = () => {
-    const isUserAuth = useSelector((state: RootState) => state.auth.isUserAuth);
+    const isUserAuth = useSelector(isUserAuthSelector);
 
     return (
         <Routes>
