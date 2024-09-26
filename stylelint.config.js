@@ -1,11 +1,15 @@
 import stylelintConfigStandard from 'stylelint-config-standard';
-import stylelintScss from 'stylelint-scss';
+import stylelintScss from 'stylelint-config-standard-scss';
 import stylelintOrder from 'stylelint-order';
+
 
 export default {
     extends: [stylelintConfigStandard, stylelintScss],
-    plugins: [stylelintScss, stylelintOrder],
+    plugins: [stylelintOrder],
     rules: {
+        'scss/no-global-function-names': null,
+        'scss/dollar-variable-no-missing-interpolation': null,
+        'scss/at-rule-no-unknown': null,
         'selector-pseudo-class-no-unknown': [
             true,
             { ignorePseudoClasses: ['global'] },
@@ -24,10 +28,7 @@ export default {
         'selector-class-pattern': null,
         'color-named': 'never',
         'color-hex-length': 'long',
-        'order/order': [
-            'custom-properties',
-            'declarations',
-        ],
+        'order/order': ['custom-properties', 'declarations'],
         'order/properties-order': [
             [
                 'position',
@@ -38,7 +39,7 @@ export default {
                 'display',
                 'justify-content',
                 'align-items',
-                
+
                 'width',
                 'height',
                 'min-width',
@@ -48,24 +49,24 @@ export default {
                 'margin',
                 'padding',
                 'gap',
-                
+
                 'background',
                 'background-color',
                 'border',
                 'border-radius',
                 'box-shadow',
                 'opacity',
-                
+
                 'font',
                 'font-size',
                 'font-weight',
                 'line-height',
                 'text-align',
                 'color',
-                
+
                 'transition',
                 'animation',
-                'z-index'
+                'z-index',
             ],
             { unspecified: 'bottomAlphabetical' },
         ],

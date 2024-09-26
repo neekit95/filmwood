@@ -84,7 +84,7 @@
     border-radius: 0;
     opacity: 1;
     font-size: 50px;
-    color: #000000;
+    color: $black;
     z-index: 2;
     align-self: stretch;
     cursor: pointer;
@@ -93,7 +93,7 @@
     &:hover {
         background-color: transparent;
         opacity: 1;
-        color: #ffffff;
+        color: $white;
     }
 
     &.prevButton {

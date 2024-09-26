@@ -6,9 +6,9 @@
     align-items: center;
     width: 100%;
     height: 60px;
-    background-color: #ffffff;
+    background-color: $white;
     z-index: 10;
-    border-bottom: 1px solid #efefef;
+    border-bottom: 1px solid $basic-background;
 }
 
 .header {
@@ -33,13 +33,11 @@
 .logo {
     height: 100%;
     gap: 5px;
-    color: #234126;
 }
 
 .navbar {
     height: 80%;
     font-size: 25px;
-    color: #234126;
 }
 
 .logo,
@@ -56,7 +54,7 @@
         width: 100%;
         height: 80%;
         padding: 10px;
-        border: 1px solid #234126;
+        border: 1px solid $basic-text-color;
         opacity: 0.4;
         font-size: 16px;
 
@@ -75,10 +73,9 @@
     align-items: flex-start;
     padding: 15px 10px;
     gap: 5px;
-    background-color: #ffffff;
+    background-color: $white;
     border-radius: 0 0 10px 10px;
     box-shadow: 0 4px 8px rgb(0 0 0 / 20%);
-    color: #234126;
     z-index: 10;
     flex-direction: column;
 

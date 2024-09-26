@@ -14,7 +14,7 @@
     align-items: center;
     width: 100vw;
     min-height: 50vh;
-    background-color: #234126;
+    background-color: $basic-text-color;
     overflow: hidden;
     place-self: center;
 }
@@ -41,7 +41,7 @@
     padding: 20px;
     gap: 5vh;
     text-align: center;
-    color: #ffffff;
+    color: $white;
     flex-direction: column;
     transform: translate(-50%, -50%);
 
@@ -50,18 +50,21 @@
         justify-content: center;
         align-items: center;
         font-size: 43px;
+        color: $white;
         flex-direction: column;
         font-family: Montserrat, sans-serif;
         font-optical-sizing: auto;
         font-style: normal;
 
         span {
+            color: $white;
             margin-top: 10px;
         }
     }
 
     p {
         font-size: 22px;
+        color: $white;
     }
 }
 
@@ -73,14 +76,14 @@
 }
 
 .heroButton {
-    background-color: #ffffff;
+    background-color: $white;
     border: none;
     border-radius: 5px;
-    color: #234126;
+    color: $basic-text-color;
     transition: background-color 0.3s ease;
 
     &:hover {
-        background-color: #e9efeb;
+        background-color: $basic-background;
     }
 }
 
@@ -92,7 +95,7 @@
     height: 100%;
     padding: 60px 0 30px;
     gap: 40px;
-    color: #234126;
+    color: $basic-text-color;
     flex-direction: column;
 }
 
@@ -115,12 +118,12 @@
     width: 100%;
     padding: 20px;
     gap: 20px;
-    background-color: #ffffff;
+    background-color: $white;
     border-radius: 5px;
     font-size: 20px;
     transition:
-            box-shadow,
-            transform 0.3s ease-in-out;
+        box-shadow,
+        transform 0.3s ease-in-out;
     flex-direction: column;
     flex-grow: 1;
 
@@ -128,8 +131,8 @@
         background-color: #f9f9f9;
         box-shadow: 0 4px 20px rgb(0 0 0 / 10%);
         transition:
-                box-shadow,
-                transform 0.3s ease-in-out;
+            box-shadow,
+            transform 0.3s ease-in-out;
         transform: translateY(-10px);
     }
 }

@@ -10,6 +10,14 @@ export default defineConfig({
             '@': path.resolve(__dirname, 'src'),
             '@pages': path.resolve(__dirname, 'src/pages'),
             '@components': path.resolve(__dirname, 'src/components'),
+            colors: path.resolve(__dirname, 'src/styles/colors.scss'),
+        },
+    },
+    css: {
+        preprocessorOptions: {
+            scss: {
+                additionalData: `@use 'colors' as *;`,
+            },
         },
     },
     server: {

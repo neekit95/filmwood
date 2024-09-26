@@ -5,9 +5,9 @@
     min-width: 60px;
     min-height: 60px;
     padding: 20px;
-    background-color: #efefef;
+    background-color: $basic-background;
     border-radius: 10px;
-    color: #000000;
+    color: $basic-text-color;
     transition: background-color 0.3s ease;
     z-index: 10;
     cursor: pointer;
