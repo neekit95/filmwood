@@ -58,6 +58,23 @@ export const fetchFilmById = createAsyncThunk(
         return response.data;
     }
 );
+export const fetchTrailerByFilmId = createAsyncThunk(
+    'films/fetchTrailerByFilmId',
+    async (filmId: number) => {
+        const response = await axios.get(
+            `https://api.themoviedb.org/3/movie/${filmId}/videos`,
+            {
+                headers: { Authorization: `Bearer ${ACCESS_TOKEN}` },
+                params: { language: 'ru-RU' },
+            }
+        );
+
+        const trailer = response.data.results.find(
+            (video: any) => video.type === 'Trailer'
+        );
+        return trailer ? trailer.key : null;
+    }
+);
 
 export type Film = {
     id: number;
@@ -69,6 +86,7 @@ export type Film = {
 };
 
 export type FilmState = {
+    trailerKey: string | null;
     filmDetails: Film | null;
     recommended: Film[];
     trending: Film[];
@@ -78,6 +96,7 @@ export type FilmState = {
 };
 
 const initialState: FilmState = {
+    trailerKey: null,
     filmDetails: null,
     recommended: [],
     trending: [],
@@ -118,6 +137,9 @@ const filmsSlice = createSlice({
                 state.loading = false;
                 state.error =
                     action.error.message || 'Failed to load film details';
+            })
+            .addCase(fetchTrailerByFilmId.fulfilled, (state, action) => {
+                state.trailerKey = action.payload;
             });
     },
 });

@@ -12,3 +12,6 @@ export const errorFilmsSelector = (state: RootState): null | string =>
 
 export const filmDetailsSelector = (state: RootState): Film | null =>
     state.films.filmDetails;
+
+export const trailerSelector = (state: RootState): Film | null | string =>
+    state.films.trailerKey;
