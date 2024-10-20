@@ -69,7 +69,12 @@ const HomepageFilms: React.FC<Props> = ({ heading, films }) => {
         <div className={style.container}>
             <div className={style.heading}>
                 {heading && <h2>{heading}</h2>}
-                <button onClick={handleShowFilmset}>Показать подборку</button>
+                <button
+                    className={style.filmSetButton}
+                    onClick={handleShowFilmset}
+                >
+                    Показать подборку
+                </button>
             </div>
             <div className={style.filmSectionWrapper}>
                 <div className={style.navigation}>

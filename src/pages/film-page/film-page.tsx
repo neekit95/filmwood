@@ -5,11 +5,11 @@ import { AppDispatch } from '@redux/store/store';
 import { fetchFilmById, fetchTrailerByFilmId } from '@redux/slices/films-slice';
 import style from './film-page.module.scss';
 import Loader from '@components/loader/loader';
+import Player from '@components/player/player';
 import {
     errorFilmsSelector,
     loadingFilmsSelector,
     filmDetailsSelector,
-    trailerSelector,
 } from '@redux/selectors/selectors';
 
 const FilmPage: React.FC = () => {
@@ -19,7 +19,6 @@ const FilmPage: React.FC = () => {
     const filmDetails = useSelector(filmDetailsSelector);
     const loading = useSelector(loadingFilmsSelector);
     const error = useSelector(errorFilmsSelector);
-    const trailerKey = useSelector(trailerSelector);
 
     useEffect(() => {
         if (filmId) {
@@ -48,23 +47,22 @@ const FilmPage: React.FC = () => {
                         className={style.poster}
                     />
                     <p>Rating: {filmDetails.vote_average.toFixed(1)}</p>
-                    {trailerKey && (
-                        <div className={style.video}>
-                            <h3>Трейлер фильма {`"${filmDetails.title}"`}</h3>
-                            <iframe
-                                src={`https://www.youtube.com/embed/${trailerKey}`}
-                                allowFullScreen
-                                className={style.player}
-                            />
-                        </div>
-                    )}
                 </div>
 
                 <div className={style.right}>
-                    <h1>{filmDetails.title}</h1>
+                    <h2>{filmDetails.title}</h2>
                     <p>{filmDetails.overview}</p>
+                    {/*<p>{filmDetails.release_date}</p>*/}
                 </div>
             </section>
+
+            <section className={style.player}>
+                <Player TMDB_ID={filmDetails.id} />
+            </section>
+
+            <section className={style.comments}>comments</section>
+
+            <section className={style.filmset}>Подборка фильмов</section>
         </div>
     );
 };

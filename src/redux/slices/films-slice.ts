@@ -86,7 +86,6 @@ export type Film = {
 };
 
 export type FilmState = {
-    trailerKey: string | null;
     filmDetails: Film | null;
     recommended: Film[];
     trending: Film[];
@@ -96,7 +95,6 @@ export type FilmState = {
 };
 
 const initialState: FilmState = {
-    trailerKey: null,
     filmDetails: null,
     recommended: [],
     trending: [],
@@ -137,9 +135,6 @@ const filmsSlice = createSlice({
                 state.loading = false;
                 state.error =
                     action.error.message || 'Failed to load film details';
-            })
-            .addCase(fetchTrailerByFilmId.fulfilled, (state, action) => {
-                state.trailerKey = action.payload;
             });
     },
 });
