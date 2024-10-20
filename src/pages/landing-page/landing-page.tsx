@@ -2,6 +2,7 @@ import style from './landing-page.module.scss';
 import React from 'react';
 import filmwoodImage from '@/assets/images/filmwood.webp';
 import { Link } from 'react-router-dom';
+import Wrapper from '@components/wrapper/wrapper';
 
 const LandingPage: React.FC = () => {
     return (
@@ -16,12 +17,12 @@ const LandingPage: React.FC = () => {
                     />
                 </picture>
                 <div className={style.heroContent}>
-                    <h1>
+                    <h1 className={style.title}>
                         Откройте мир кино с
                         <br />
-                        <span>FILMWOOD</span>
+                        <span className={style.filmwood}>FILMWOOD</span>
                     </h1>
-                    <p>
+                    <p className={style.description}>
                         Пишите рецензии, создавайте списки избранного и делитесь
                         мнением с другими киноманами. Присоединяйтесь к нашему
                         сообществу и погружайтесь в увлекательный мир
@@ -39,7 +40,7 @@ const LandingPage: React.FC = () => {
                     </div>
                 </div>
             </section>
-            <section className="wrapper">
+            <Wrapper>
                 <div className={style.secondSection}>
                     <div className={style.options}>
                         <div className={style.option}>
@@ -67,7 +68,7 @@ const LandingPage: React.FC = () => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </Wrapper>
         </div>
     );
 };

@@ -50,8 +50,8 @@ const FilmPage: React.FC = () => {
                 </div>
 
                 <div className={style.right}>
-                    <h2>{filmDetails.title}</h2>
-                    <p>{filmDetails.overview}</p>
+                    <h2 className={style.title}>{filmDetails.title}</h2>
+                    <p className={style.overview}>{filmDetails.overview}</p>
                     {/*<p>{filmDetails.release_date}</p>*/}
                 </div>
             </section>

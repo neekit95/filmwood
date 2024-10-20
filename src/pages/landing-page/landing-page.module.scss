@@ -45,7 +45,7 @@
     flex-direction: column;
     transform: translate(-50%, -50%);
 
-    h1 {
+    .title {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -55,14 +55,14 @@
         font-family: Montserrat, sans-serif;
         font-optical-sizing: auto;
         font-style: normal;
-
-        span {
-            color: $white;
-            margin-top: 10px;
-        }
     }
 
-    p {
+    .filmwood {
+        color: $white;
+        margin-top: 10px;
+    }
+
+    .description {
         font-size: 22px;
         color: $white;
     }

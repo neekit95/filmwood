@@ -49,9 +49,10 @@ const LoginPage: React.FC = () => {
 
     return (
         <div className={style.container}>
-            <h3>Вход</h3>
-            <form onSubmit={handleSubmit}>
+            <h3 className={style.h3}>Вход</h3>
+            <form className={style.form} onSubmit={handleSubmit}>
                 <input
+                    className={style.formInput}
                     type="email"
                     name="email"
                     placeholder="Email"
@@ -61,6 +62,7 @@ const LoginPage: React.FC = () => {
                 />
 
                 <input
+                    className={style.formInput}
                     type="password"
                     name="password"
                     placeholder="Password"
@@ -69,10 +71,12 @@ const LoginPage: React.FC = () => {
                     required
                 />
 
-                <button type="submit">Войти</button>
+                <button className={style.formButton} type="submit">
+                    Войти
+                </button>
 
                 <div className={style.regSign}>
-                    <p>Еще нет аккаунта?</p>
+                    <p className={style.haveAcc}>Еще нет аккаунта?</p>
                     <Link to="/auth/register">
                         <div className={style.regSignButton}>
                             Зарегистрироваться

@@ -61,8 +61,9 @@ const RegistrationPage: React.FC = () => {
     return (
         <div className={style.container}>
             <h3>Регистрация</h3>
-            <form onSubmit={handleSubmit}>
+            <form className={style.form} onSubmit={handleSubmit}>
                 <input
+                    className={style.formInput}
                     type="text"
                     name="username"
                     placeholder="Username"
@@ -72,6 +73,7 @@ const RegistrationPage: React.FC = () => {
                 />
 
                 <input
+                    className={style.formInput}
                     type="email"
                     name="email"
                     placeholder="Email"
@@ -81,6 +83,7 @@ const RegistrationPage: React.FC = () => {
                 />
 
                 <input
+                    className={style.formInput}
                     type="password"
                     name="password"
                     placeholder="Password"
@@ -90,6 +93,7 @@ const RegistrationPage: React.FC = () => {
                 />
 
                 <input
+                    className={style.formInput}
                     type="password"
                     name="confirmPassword"
                     placeholder="Confirm Password"
@@ -98,10 +102,12 @@ const RegistrationPage: React.FC = () => {
                     required
                 />
 
-                <button type="submit">Зарегистрироваться</button>
+                <button className={style.formButton} type="submit">
+                    Зарегистрироваться
+                </button>
 
                 <div className={style.regSign}>
-                    <p>Уже есть аккаунт?</p>
+                    <p className={style.haveAcc}>Уже есть аккаунт?</p>
                     <Link to="/auth/login">
                         <div className={style.regSignButton}>Войти</div>
                     </Link>

@@ -11,6 +11,7 @@ import { IoDocumentTextOutline } from 'react-icons/io5';
 import { logout } from '@redux/slices/auth-slice';
 import LinkButton from '@components/link-button/link-button';
 import { isUserAuthSelector } from '@redux/selectors/selectors';
+import Wrapper from '@components/wrapper/wrapper';
 
 const Header: React.FC = () => {
     const isUserAuth = useSelector(isUserAuthSelector);
@@ -50,7 +51,7 @@ const Header: React.FC = () => {
 
     return (
         <div className={style.container}>
-            <div className="wrapper">
+            <Wrapper>
                 <div className={style.header}>
                     <LinkButton to="/" icon={<MdForest />} nameH3="FILMWOOD" />
 
@@ -121,7 +122,7 @@ const Header: React.FC = () => {
                         </div>
                     )}
                 </div>
-            </div>
+            </Wrapper>
         </div>
     );
 };
