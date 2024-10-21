@@ -15,9 +15,11 @@
         "baseUrl": "./src",
         "forceConsistentCasingInFileNames": true,
         "paths": {
+            "@": ["src/*"],
             "@components/*": ["components/*"],
             "@redux/*": ["redux/*"],
             "@pages/*": ["pages/*"],
+            "@lib": ["lib/*"],
             "colors": ["styles/colors.scss"]
         }
     },

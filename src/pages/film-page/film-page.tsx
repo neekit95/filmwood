@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from '@redux/store/store';
-import { fetchFilmById, fetchTrailerByFilmId } from '@redux/slices/films-slice';
+import { fetchFilmById } from '@redux/thunks/fetch-films-thunk';
 import style from './film-page.module.scss';
 import Loader from '@components/loader/loader';
 import Player from '@components/player/player';
@@ -23,7 +23,6 @@ const FilmPage: React.FC = () => {
     useEffect(() => {
         if (filmId) {
             dispatch(fetchFilmById(filmId));
-            dispatch(fetchTrailerByFilmId(filmId));
         }
     }, [dispatch, filmId]);
 

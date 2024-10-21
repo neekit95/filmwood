@@ -11,6 +11,7 @@ export default defineConfig({
             '@pages': path.resolve(__dirname, 'src/pages'),
             '@redux': path.resolve(__dirname, 'src/redux'),
             '@components': path.resolve(__dirname, 'src/components'),
+            '@lib': path.resolve(__dirname, 'src/lib'),
             colors: path.resolve(__dirname, 'src/styles/colors.scss'),
         },
     },

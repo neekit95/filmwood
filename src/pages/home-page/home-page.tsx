@@ -2,9 +2,9 @@ import style from './home-page.module.scss';
 import React, { useEffect } from 'react';
 import HomepageFilms from '@components/homepage-films/homepage-films';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchAllFilms } from '../../redux/slices/films-slice';
-import { AppDispatch, RootState } from '../../redux/store/store';
-import Loader from '../../components/loader/loader';
+import { fetchAllFilms } from '@redux/thunks/fetch-films-thunk';
+import { AppDispatch, RootState } from '@redux/store/store';
+import Loader from '@components/loader/loader';
 
 const HomePage: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();

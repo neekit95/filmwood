@@ -1,5 +1,5 @@
 import { RootState } from '../store/store';
-import type { Film } from '@redux/slices/films-slice';
+import type { Film } from '../../lib/types';
 
 export const isUserAuthSelector = (state: RootState): boolean =>
     state.auth.isUserAuth;
