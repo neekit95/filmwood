@@ -1,5 +1,5 @@
 import { RootState } from '../store/store';
-import type { Film } from '../../lib/types';
+import type { Film, FilmState } from '@lib/types';
 
 export const isUserAuthSelector = (state: RootState): boolean =>
     state.auth.isUserAuth;
@@ -12,3 +12,6 @@ export const errorFilmsSelector = (state: RootState): null | string =>
 
 export const filmDetailsSelector = (state: RootState): Film | null =>
     state.films.filmDetails;
+
+export const filmsSelector = (state: RootState): FilmState | null =>
+    state.films;

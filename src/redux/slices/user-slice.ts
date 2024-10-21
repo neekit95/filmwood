@@ -1,10 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-type UserState = {
-    username: string | undefined;
-    email: string | undefined;
-    password: string | undefined;
-};
+import { UserState } from '@lib/types';
 
 const initialState: UserState = {
     username: undefined,

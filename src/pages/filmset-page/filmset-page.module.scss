@@ -1,3 +1,24 @@
- .container {
-	 display: flex;
- }
+.container {
+    display: flex;
+    width: 100%;
+    padding: 20px 0;
+    gap: 30px;
+    flex-direction: column;
+}
+
+.films {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.film {
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 10%);
+    transition: transform 0.2s;
+    overflow: hidden;
+
+    &:hover {
+        transform: scale(1.04);
+    }
+}

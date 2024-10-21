@@ -19,7 +19,7 @@
             "@components/*": ["components/*"],
             "@redux/*": ["redux/*"],
             "@pages/*": ["pages/*"],
-            "@lib": ["lib/*"],
+            "@lib/*": ["lib/*"],
             "colors": ["styles/colors.scss"]
         }
     },

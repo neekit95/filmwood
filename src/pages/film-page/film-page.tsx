@@ -11,6 +11,7 @@ import {
     loadingFilmsSelector,
     filmDetailsSelector,
 } from '@redux/selectors/selectors';
+import { format } from 'date-fns';
 
 const FilmPage: React.FC = () => {
     const { id } = useParams<{ id: string }>();
@@ -19,6 +20,11 @@ const FilmPage: React.FC = () => {
     const filmDetails = useSelector(filmDetailsSelector);
     const loading = useSelector(loadingFilmsSelector);
     const error = useSelector(errorFilmsSelector);
+
+    let releaseDate;
+    if (filmDetails) {
+        releaseDate = format(new Date(filmDetails.release_date), 'dd.MM.yyyy');
+    }
 
     useEffect(() => {
         if (filmId) {
@@ -45,13 +51,17 @@ const FilmPage: React.FC = () => {
                         alt={filmDetails.title}
                         className={style.poster}
                     />
-                    <p>Rating: {filmDetails.vote_average.toFixed(1)}</p>
+                    <p>Rating TMDB: {filmDetails.vote_average.toFixed(1)}</p>
+                    <p>Rating FW: {filmDetails.vote_average.toFixed(1)}</p>
                 </div>
 
                 <div className={style.right}>
                     <h2 className={style.title}>{filmDetails.title}</h2>
                     <p className={style.overview}>{filmDetails.overview}</p>
-                    {/*<p>{filmDetails.release_date}</p>*/}
+                    <div className={style.overview}>
+                        <h3>Дата выхода:</h3>
+                        {releaseDate}
+                    </div>
                 </div>
             </section>
 

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { FilmState } from '../../lib/types';
+import { FilmState } from '@lib/types';
 import { fetchFilmById, fetchAllFilms } from '@redux/thunks/fetch-films-thunk';
 
 const initialState: FilmState = {

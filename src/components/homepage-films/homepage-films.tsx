@@ -62,7 +62,9 @@ const HomepageFilms: React.FC<Props> = ({ heading, films }) => {
     }, [films]);
 
     const handleShowFilmset = (): void => {
-        navigate('/filmset/1');
+        navigate(`/filmset/${heading}`, {
+            state: { films, title: heading },
+        });
     };
 
     return (

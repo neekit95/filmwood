@@ -15,3 +15,9 @@ export type FilmState = {
     loading: boolean;
     error: string | null;
 };
+
+export type UserState = {
+    username: string | undefined;
+    email: string | undefined;
+    password: string | undefined;
+};
