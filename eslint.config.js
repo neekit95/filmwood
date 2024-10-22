@@ -77,7 +77,6 @@ export default [
             react,
         },
         rules: {
-            '@typescript-eslint/explicit-function-return-type': ['warn'],
             '@typescript-eslint/no-unused-vars': ['error'],
             ...react.configs.recommended.rules,
             ...react.configs['jsx-runtime'].rules,

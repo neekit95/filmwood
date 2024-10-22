@@ -33,7 +33,11 @@ const FilmPage: React.FC = () => {
     }, [dispatch, filmId]);
 
     if (loading) {
-        return <Loader />;
+        return (
+            <div className={style.loader}>
+                <Loader />;
+            </div>
+        );
     }
     if (error) {
         return <div className={style.error}>Error: {error}</div>;

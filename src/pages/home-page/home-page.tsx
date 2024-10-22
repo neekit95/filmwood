@@ -16,7 +16,11 @@ const HomePage: React.FC = () => {
     }, [dispatch]);
 
     if (loading) {
-        return <Loader />;
+        return (
+            <div className={style.loader}>
+                <Loader />
+            </div>
+        );
     }
     if (error) {
         return <div className={style.error}>Ошибка: {error}</div>;

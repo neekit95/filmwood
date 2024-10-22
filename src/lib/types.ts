@@ -16,6 +16,13 @@ export type FilmState = {
     error: string | null;
 };
 
+export type SearchState = {
+    filmDetails: Film | null;
+    searchResults: Film[];
+    loading: boolean;
+    error: string | null;
+};
+
 export type UserState = {
     username: string | undefined;
     email: string | undefined;

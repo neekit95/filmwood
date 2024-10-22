@@ -1,0 +1,24 @@
+.dropdown {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 15px 10px;
+    gap: 5px;
+    background-color: $white;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 20%);
+    z-index: 10;
+    flex-direction: column;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    font-size: 25px;
+    place-self: center center;
+}

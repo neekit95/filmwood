@@ -17,6 +17,7 @@ const filmsSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
+            // Загрузка всех фильмов
             .addCase(fetchAllFilms.pending, (state) => {
                 state.loading = true;
                 state.error = null;
@@ -32,6 +33,7 @@ const filmsSlice = createSlice({
                 state.error = action.error.message || 'Failed to load films';
             })
 
+            // Загрузка по ID
             .addCase(fetchFilmById.pending, (state) => {
                 state.loading = true;
                 state.error = null;

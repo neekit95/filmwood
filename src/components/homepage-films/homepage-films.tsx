@@ -96,6 +96,7 @@ const HomepageFilms: React.FC<Props> = ({ heading, films }) => {
                         <MdNavigateNext />
                     </button>
                 </div>
+
                 <div ref={filmSectionRef} className={style.filmSection}>
                     {films.map((film) => (
                         <div key={film.id} className={style.film}>

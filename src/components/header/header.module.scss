@@ -21,77 +21,17 @@
     padding: 5px 0;
 }
 
-.logo,
-.navbar,
-.search {
+.logo {
     display: flex;
     justify-content: center;
     align-items: center;
-    place-self: center center;
-}
-
-.logo {
     height: 100%;
     gap: 5px;
-}
-
-.navbar {
-    height: 80%;
-    font-size: 25px;
+    place-self: center center;
 }
 
 .logo,
 .navbar {
     border: 1px solid transparent;
     cursor: pointer;
-}
-
-.search {
-    width: 40%;
-    height: 100%;
-
-    input {
-        width: 100%;
-        height: 80%;
-        padding: 10px;
-        border: 1px solid $basic-background;
-        font-size: 16px;
-    }
-}
-
-.dropdown {
-    position: absolute;
-    top: 60px;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 15px 10px;
-    gap: 5px;
-    background-color: $white;
-    border-radius: 0 0 10px 10px;
-    box-shadow: 0 4px 8px rgb(0 0 0 / 20%);
-    z-index: 10;
-    flex-direction: column;
-
-    .dropdownLink {
-        width: 100%;
-    }
-
-    .dropbutton {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 8px;
-        font-size: 16px;
-        cursor: pointer;
-    }
-
-    button {
-        width: 100%;
-        font-size: 18px;
-        font-weight: 700;
-        text-align: left;
-        cursor: pointer;
-    }
 }

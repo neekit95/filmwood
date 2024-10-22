@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import style from './player.module.scss';
 
 interface Props {
     TMDB_ID: number;
@@ -33,7 +34,12 @@ const Player: React.FC<Props> = ({ TMDB_ID }) => {
         };
     }, [TMDB_ID]);
 
-    return <div ref={containerRef} className="kinobox_player"></div>;
+    return (
+        <div
+            ref={containerRef}
+            className={`${style.player} 'kinobox_player'`}
+        ></div>
+    );
 };
 
 export default Player;

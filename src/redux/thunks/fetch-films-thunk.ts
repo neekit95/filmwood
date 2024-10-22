@@ -1,8 +1,7 @@
 import { AsyncThunk, createAsyncThunk } from '@reduxjs/toolkit';
-import { getApiConfig, API_BASE_URL } from '../../lib/api';
-
+import { getApiConfig, API_BASE_URL } from '@lib/api';
 import axios from 'axios';
-import { Film } from '../../lib/types';
+import { Film } from '@lib/types';
 
 const config = getApiConfig();
 
@@ -13,7 +12,10 @@ const createFilmThunk = (
     name: Props
 ): AsyncThunk<Film[], void, {}> => {
     return createAsyncThunk(`films/${set}`, async () => {
-        const response = await axios.get(`${API_BASE_URL}${name}`, config);
+        const response = await axios.get(
+            `${API_BASE_URL}/movie/${name}`,
+            config
+        );
         return response.data.results;
     });
 };
@@ -61,7 +63,21 @@ export const fetchAllFilms = createAsyncThunk(
 export const fetchFilmById = createAsyncThunk(
     'films/fetchFilmById',
     async (filmId: number) => {
-        const response = await axios.get(`${API_BASE_URL}${filmId}`, config);
+        const response = await axios.get(
+            `${API_BASE_URL}/movie/${filmId}`,
+            config
+        );
         return response.data;
+    }
+);
+
+export const fetchFilmByTitle = createAsyncThunk(
+    'films/fetchFilmByTitle',
+    async (filmTitle: string | number) => {
+        const response = await axios.get(
+            `${API_BASE_URL}/search/movie?query=${filmTitle}`,
+            config
+        );
+        return response.data.results;
     }
 );

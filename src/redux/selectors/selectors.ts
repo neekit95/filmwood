@@ -15,3 +15,9 @@ export const filmDetailsSelector = (state: RootState): Film | null =>
 
 export const filmsSelector = (state: RootState): FilmState | null =>
     state.films;
+
+export const searchResultsSelector = (state: RootState): Film[] =>
+    state.search.searchResults;
+
+export const searchLoadingSelector = (state: RootState): boolean =>
+    state.search.loading;
