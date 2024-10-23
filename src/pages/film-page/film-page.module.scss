@@ -13,6 +13,7 @@
     display: flex;
     justify-content: space-between;
     align-items: stretch;
+    width: 100%;
 }
 
 .left {
@@ -20,9 +21,10 @@
     justify-content: center;
     align-items: center;
     width: 25%;
-    height: 100%;
     max-width: 500px;
     gap: 10px;
+    border-radius: 10px;
+    align-self: flex-start;
     flex-direction: column;
 }
 
@@ -34,8 +36,10 @@
 
 .right {
     display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
     width: 70%;
-    gap: 30px;
+    gap: 20px;
     flex-direction: column;
 }
 
@@ -44,7 +48,16 @@
 }
 
 .overview {
+    display: flex;
     font-size: 19px;
+    flex-direction: column;
+}
+
+.overviewSecondary {
+    display: flex;
+    gap: 20px;
+    font-size: 17px;
+    flex-direction: column;
 }
 
 .video {
@@ -68,4 +81,41 @@
     align-items: center;
     width: 100vw;
     height: calc(100vh - 60px);
+}
+
+.star {
+    height: 24px;
+    transition: color 0.2s;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.ratings {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding: 10px 5px;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.studio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+}
+
+.date {
+    display: flex;
+    gap: 7px;
+    flex-direction: column;
 }

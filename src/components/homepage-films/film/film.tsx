@@ -25,10 +25,18 @@ const Film: React.FC<FilmProps> = ({
                     alt={title}
                     className={style.poster}
                 />
-                <h3 className={style.title}>{title}</h3>
-                <div className={style.details}>
-                    <span className={style.rating}>Рейтинг: {rating}</span>
+
+                <div className={style.ratings}>
+                    <div className={style.rating}>
+                        <span className={style.studio}>TMDB</span>: {rating}
+                    </div>
+
+                    <div className={style.rating}>
+                        <span className={style.studio}>FW</span>: 6.7
+                    </div>
                 </div>
+
+                <h3 className={style.title}>{title}</h3>
             </Link>
         </div>
     );

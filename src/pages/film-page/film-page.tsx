@@ -22,8 +22,14 @@ const FilmPage: React.FC = () => {
     const error = useSelector(errorFilmsSelector);
 
     let releaseDate;
+    let genres;
+
     if (filmDetails) {
         releaseDate = format(new Date(filmDetails.release_date), 'dd.MM.yyyy');
+        if (filmDetails.genres) {
+            genres = filmDetails.genres.map((genre) => genre.name).join(', ');
+        }
+        console.log('filmDetails', filmDetails);
     }
 
     useEffect(() => {
@@ -35,7 +41,7 @@ const FilmPage: React.FC = () => {
     if (loading) {
         return (
             <div className={style.loader}>
-                <Loader />;
+                <Loader />
             </div>
         );
     }
@@ -50,21 +56,40 @@ const FilmPage: React.FC = () => {
         <div className={style.container}>
             <section className={style.main}>
                 <div className={style.left}>
-                    <img
-                        src={`https://image.tmdb.org/t/p/original${filmDetails.poster_path}`}
-                        alt={filmDetails.title}
-                        className={style.poster}
-                    />
-                    <p>Rating TMDB: {filmDetails.vote_average.toFixed(1)}</p>
-                    <p>Rating FW: {filmDetails.vote_average.toFixed(1)}</p>
+                    <div className={style.stars}>
+                        <img
+                            src={`https://image.tmdb.org/t/p/original${filmDetails.poster_path}`}
+                            alt={filmDetails.title}
+                            className={style.poster}
+                        />
+                    </div>
+
+                    <div className={style.ratings}>
+                        <div className={style.rating}>
+                            <span className={style.studio}>TMDB</span>:{' '}
+                            {filmDetails.vote_average.toFixed(1)}
+                        </div>
+
+                        <div className={style.rating}>
+                            <span className={style.studio}>FW</span>: 6.7
+                        </div>
+                    </div>
                 </div>
 
                 <div className={style.right}>
                     <h2 className={style.title}>{filmDetails.title}</h2>
                     <p className={style.overview}>{filmDetails.overview}</p>
-                    <div className={style.overview}>
-                        <h3>Дата выхода:</h3>
-                        {releaseDate}
+                    <div className={style.overviewSecondary}>
+                        <div className={style.date}>
+                            <h3>Дата выхода:</h3>
+                            {releaseDate}
+                        </div>
+                        {genres && (
+                            <div className={style.date}>
+                                <h3>Жанр:</h3>
+                                <p>{genres}</p>
+                            </div>
+                        )}
                     </div>
                 </div>
             </section>
@@ -72,10 +97,6 @@ const FilmPage: React.FC = () => {
             <section className={style.player}>
                 <Player TMDB_ID={filmDetails.id} />
             </section>
-
-            <section className={style.comments}>comments</section>
-
-            <section className={style.filmset}>Подборка фильмов</section>
         </div>
     );
 };

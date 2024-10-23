@@ -1,3 +1,8 @@
+export type Genre = {
+    id: number;
+    name: string;
+};
+
 export type Film = {
     id: number;
     title: string;
@@ -5,6 +10,7 @@ export type Film = {
     poster_path: string;
     vote_average: number;
     release_date: string;
+    genres?: Genre[];
 };
 
 export type FilmState = {

@@ -1,5 +1,5 @@
 import style from './search.module.scss';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { IoIosSearch } from 'react-icons/io';
 import SearchResult from './search-result/search-result';
 import { useDispatch, useSelector } from 'react-redux';
@@ -18,6 +18,7 @@ const Search: React.FC = () => {
     const dispatch: AppDispatch = useDispatch();
     const results = useSelector(searchResultsSelector);
     const loading = useSelector(searchLoadingSelector);
+    const resultsRef = useRef<HTMLDivElement>(null);
 
     const handleInputChange = (
         e: React.ChangeEvent<HTMLInputElement>
@@ -39,11 +40,29 @@ const Search: React.FC = () => {
         setIsResultsVisible(false);
     };
 
-    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>): void => {
+    const handleKeyDown = async (
+        e: React.KeyboardEvent<HTMLInputElement>
+    ): Promise<void> => {
         if (e.key === 'Enter') {
-            searchFilmByName();
+            await searchFilmByName();
         }
     };
+
+    const handleClickOutside = (e: MouseEvent): void => {
+        if (
+            resultsRef.current &&
+            !resultsRef.current.contains(e.target as Node)
+        ) {
+            clearResults();
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
 
     return (
         <div className={style.container}>
@@ -60,7 +79,7 @@ const Search: React.FC = () => {
             </button>
 
             {isResultsVisible && (
-                <div className={style.results}>
+                <div className={style.results} ref={resultsRef}>
                     {loading && (
                         <div className={style.loader}>
                             <Loader />
@@ -70,13 +89,22 @@ const Search: React.FC = () => {
                     {!loading && (
                         <>
                             {results.length > 0 ? (
-                                results.map((film) => (
-                                    <SearchResult
-                                        film={film}
-                                        key={film.id}
-                                        clearResults={clearResults}
-                                    />
-                                ))
+                                results
+                                    .filter(
+                                        (film) =>
+                                            film.vote_average !== undefined
+                                    )
+                                    .sort(
+                                        (a, b) =>
+                                            b.vote_average - a.vote_average
+                                    )
+                                    .map((film) => (
+                                        <SearchResult
+                                            film={film}
+                                            key={film.id}
+                                            clearResults={clearResults}
+                                        />
+                                    ))
                             ) : (
                                 <div className={style.notFound}>
                                     Фильмы не найдены

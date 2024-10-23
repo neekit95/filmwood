@@ -28,9 +28,9 @@ const HomePage: React.FC = () => {
 
     return (
         <div className={style.container}>
-            <HomepageFilms heading="Наши рекомендации" films={recommended} />
-            <HomepageFilms heading="В тренде" films={trending} />
             <HomepageFilms heading="Новые релизы" films={newReleases} />
+            <HomepageFilms heading="Наши рекомендации" films={recommended} />
+            <HomepageFilms heading="Высокий рейтинг" films={trending} />
         </div>
     );
 };
