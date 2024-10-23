@@ -1,7 +1,28 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+    "compilerOptions": {
+        "jsx": "react-jsx",
+        "target": "ES2020",
+        "module": "ESNext",
+        "allowJs": false,
+        "outDir": "./dist",
+//        "rootDir": "./src",
+//        "rootDir": ".",
+        "strict": true,
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "skipLibCheck": true,
+        "resolveJsonModule": true,
+        "baseUrl": "./src",
+        "forceConsistentCasingInFileNames": true,
+        "paths": {
+            "@": ["src/*"],
+            "@components/*": ["components/*"],
+            "@redux/*": ["redux/*"],
+            "@pages/*": ["pages/*"],
+            "@lib/*": ["lib/*"],
+            "colors": ["styles/colors.scss"]
+        }
+    },
+    "include": ["src/**/*", "vite.config.ts"],
+    "exclude": ["node_modules", "build", "dist"]
 }

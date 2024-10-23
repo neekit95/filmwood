@@ -1,0 +1,121 @@
+.container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    min-height: calc(100vh - 60px);
+    padding: 50px 20px;
+    gap: 40px;
+    flex-direction: column;
+}
+
+.main {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 100%;
+}
+
+.left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    max-width: 500px;
+    gap: 10px;
+    border-radius: 10px;
+    align-self: flex-start;
+    flex-direction: column;
+}
+
+.poster {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.right {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 70%;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 30px;
+}
+
+.overview {
+    display: flex;
+    font-size: 19px;
+    flex-direction: column;
+}
+
+.overviewSecondary {
+    display: flex;
+    gap: 20px;
+    font-size: 17px;
+    flex-direction: column;
+}
+
+.video {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.player,
+.comments,
+.filmset {
+    width: 100%;
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: calc(100vh - 60px);
+}
+
+.star {
+    height: 24px;
+    transition: color 0.2s;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.ratings {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding: 10px 5px;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.studio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+}
+
+.date {
+    display: flex;
+    gap: 7px;
+    flex-direction: column;
+}

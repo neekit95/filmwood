@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    gap: 20px;
+    text-align: left;
+    z-index: 5;
+    border-bottom: 1px solid $basic-background;
+}
+
+.poster {
+    width: 50px;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    gap: 5px;
+
+    .h4 {
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 30px;
+    }
+}
+
+.span {
+    font-size: 18px;
+    font-weight: 300;
+    padding-left: 5px;
+}
