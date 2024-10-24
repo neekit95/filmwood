@@ -58,6 +58,7 @@ export default [
             'prettier.config.js',
             'stylelint.config.js',
             'vite.config.ts',
+            'src/firebase.ts',
         ],
     },
     pluginJs.configs.recommended,
@@ -86,6 +87,8 @@ export default [
             'prettier.config.js',
             'stylelint.config.js',
             'vite.config.ts',
+            'src/firebase.ts',
         ],
     },
 ];
+

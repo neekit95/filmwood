@@ -8,11 +8,16 @@ import {
     setUsername,
 } from '@redux/slices/user-slice';
 import { login } from '@redux/slices/auth-slice';
+import {
+    createUserWithEmailAndPassword,
+    updateProfile,
+    getAuth,
+} from 'firebase/auth';
 
 type Form = {
     username: string | undefined;
-    password: string | undefined;
     email: string | undefined;
+    password: string | undefined;
     confirmPassword: string | undefined;
 };
 
@@ -20,6 +25,7 @@ const RegistrationPage: React.FC = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+    const [errorMessage, setErrorMessage] = useState<string>('');
 
     const [form, setForm] = useState<Form>({
         username: undefined,
@@ -40,21 +46,52 @@ const RegistrationPage: React.FC = () => {
     ): Promise<void> => {
         e.preventDefault();
 
-        const checkUserExist = async (): Promise<boolean> => {
-            // TODO: дописать логику  проверки на существование пользователя
-            return false;
-        };
-
-        const userExists = await checkUserExist();
-
-        if (!userExists && form.username && form.password && form.email) {
-            dispatch(setUsername(form.username));
-            dispatch(setUserEmail(form.email));
-            dispatch(setUserPassword(form.password));
-            dispatch(login());
-            navigate('/');
-        } else {
+        if (form.password !== form.confirmPassword) {
+            setErrorMessage('Пароли не совпадают');
             setIsModalOpen(true);
+            return;
+        }
+
+        if (form.username && form.password && form.email) {
+            try {
+                const auth = getAuth();
+
+                const userCredential = await createUserWithEmailAndPassword(
+                    auth,
+                    form.email,
+                    form.password
+                );
+
+                await updateProfile(userCredential.user, {
+                    displayName: form.username,
+                });
+
+                dispatch(setUsername(form.username));
+                dispatch(setUserEmail(form.email));
+                dispatch(setUserPassword(form.password));
+                dispatch(login());
+                navigate('/');
+            } catch (error: any) {
+                console.error('Ошибка при регистрации:', error);
+
+                switch (error.code) {
+                    case 'auth/email-already-in-use':
+                        setErrorMessage('Этот email уже используется.');
+                        break;
+                    case 'auth/invalid-email':
+                        setErrorMessage('Некорректный email.');
+                        break;
+                    case 'auth/weak-password':
+                        setErrorMessage(
+                            'Пароль должен содержать не менее 6 символов.'
+                        );
+                        break;
+                    default:
+                        setErrorMessage('Произошла ошибка регистрации.');
+                }
+
+                setIsModalOpen(true);
+            }
         }
     };
 
@@ -112,11 +149,11 @@ const RegistrationPage: React.FC = () => {
                         <div className={style.regSignButton}>Войти</div>
                     </Link>
                 </div>
-            </form>
 
-            {isModalOpen && (
-                <div className={style.modal}>Пользователь уже существует</div>
-            )}
+                {isModalOpen && (
+                    <div className={style.modal}>{errorMessage}</div>
+                )}
+            </form>
         </div>
     );
 };

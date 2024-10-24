@@ -5,6 +5,7 @@ import './styles/index.scss';
 import { Provider } from 'react-redux';
 import store from './redux/store/store';
 import { BrowserRouter } from 'react-router-dom';
+import './firebase';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
